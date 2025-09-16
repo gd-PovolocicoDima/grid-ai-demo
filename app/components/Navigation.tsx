@@ -1,7 +1,7 @@
 export default function Navigation() {
   return (
     <nav className="fixed top-0 left-0 w-full h-16 md:h-20 lg:h-24 bg-gradient-to-b from-dark to-transparent z-50 flex items-center justify-center">
-      <div className="w-full max-w-7xl px-4 md:px-6 lg:px-8 flex flex-row justify-between items-center">
+      <div className="w-full px-4 md:px-6 lg:px-[100px] flex flex-row justify-between items-center">
         {/* Logo */}
         <div className="flex items-center gap-2 md:gap-3">
           <div className="w-6 h-6 md:w-7 md:h-7 lg:w-8 lg:h-8 bg-white rounded"></div>

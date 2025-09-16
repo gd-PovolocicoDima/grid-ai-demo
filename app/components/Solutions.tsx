@@ -1,6 +1,6 @@
 export default function Solutions() {
   return (
-    <section className="relative w-full min-h-screen px-4 md:px-6 lg:px-8 py-12 md:py-16 lg:py-20 flex flex-col gap-8 md:gap-12 lg:gap-16">
+    <section className="relative w-full min-h-screen px-4 md:px-6 lg:px-[100px] py-12 md:py-16 lg:py-20 flex flex-col gap-8 md:gap-12 lg:gap-16">
       <div className="flex flex-row items-center gap-3 md:gap-4 self-end">
         <div className="text-gray text-base md:text-lg lg:text-xl font-normal leading-relaxed">(02)</div>
         <h2 className="text-gray text-base md:text-lg lg:text-xl font-normal leading-relaxed tracking-wider uppercase">SOLUTIONS FOR ACCELERATED GROWTH</h2>

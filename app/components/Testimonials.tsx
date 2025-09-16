@@ -1,7 +1,7 @@
 export default function Testimonials() {
   return (
-    <section className="relative w-full min-h-screen bg-dark px-4 md:px-6 lg:px-8 py-12 md:py-16 lg:py-20 flex items-center justify-center">
-      <div className="relative w-full max-w-7xl h-full flex flex-col lg:flex-row items-center gap-6 md:gap-8 lg:gap-12">
+    <section className="relative w-full min-h-screen bg-dark px-4 md:px-6 lg:px-[100px] py-12 md:py-16 lg:py-20 flex items-center justify-center">
+      <div className="relative w-full h-full flex flex-col lg:flex-row items-center gap-6 md:gap-8 lg:gap-12">
         <div className="flex-1 flex flex-col gap-4 md:gap-6 lg:gap-8">
           <div className="text-accent text-4xl md:text-6xl lg:text-8xl xl:text-9xl font-normal leading-none m-0">"</div>
           <p className="text-white text-lg md:text-xl lg:text-2xl xl:text-3xl font-normal leading-relaxed tracking-tight m-0 max-w-4xl">

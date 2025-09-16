@@ -26,20 +26,20 @@ export default function Industries() {
 
   return (
     <section className="relative w-full min-h-screen bg-dark py-12 md:py-16 lg:py-20 flex flex-col gap-8 md:gap-12 lg:gap-16">
-      <div className="flex flex-row items-center gap-3 md:gap-4 self-end px-4 md:px-6 lg:px-4">
+      <div className="flex flex-row items-center gap-3 md:gap-4 self-end px-4 md:px-6 lg:px-[100px]">
         <div className="text-gray text-base md:text-lg lg:text-xl font-normal leading-relaxed">(04)</div>
         <h2 className="text-gray text-base md:text-lg lg:text-xl font-normal leading-relaxed tracking-wider uppercase">TAILORED TO YOUR INDUSTRY</h2>
       </div>
       
-      <h3 className="text-white text-xl md:text-2xl lg:text-3xl xl:text-4xl font-normal leading-tight tracking-tight m-0 max-w-4xl px-4 md:px-6 lg:px-4">
+      <h3 className="text-white text-xl md:text-2xl lg:text-3xl xl:text-4xl font-normal leading-tight tracking-tight m-0 max-w-4xl px-4 md:px-6 lg:px-[100px]">
         Every industry has its own unique challenges and opportunities for growth.
       </h3>
       
-      <p className="text-white text-base md:text-lg lg:text-xl font-normal leading-relaxed m-0 max-w-3xl self-end px-4 md:px-6 lg:px-4">
+      <p className="text-white text-base md:text-lg lg:text-xl font-normal leading-relaxed m-0 max-w-3xl self-end px-4 md:px-6 lg:px-[100px]">
         We combine our expertise in AI and top-tier engineering with deep domain knowledge to deliver specialized solutions that transform your business.
       </p>
       
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 lg:gap-8 w-full max-w-[1600px] mx-auto px-4 md:px-6 lg:px-2">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 lg:gap-8 w-full px-4 md:px-6 lg:px-[100px]">
         {industries.map((industry, index) => (
           <IndustryCard
             key={index}

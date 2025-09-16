@@ -1,30 +1,31 @@
 export default function Navigation() {
   return (
-    <nav className="fixed top-0 left-0 w-full h-[80px] md:h-[120px] lg:h-[171px] bg-gradient-to-b from-dark to-transparent z-50 flex items-center justify-center">
-      <div className="flex flex-row justify-between items-center px-4 md:px-8 lg:px-[100px] pb-4 md:pb-8 lg:pb-[100px] pt-4 md:pt-6 lg:pt-[30px] gap-4 md:gap-8 lg:gap-[380px] w-full max-w-[1920px]">
-        <div className="flex items-center gap-2 md:gap-[10px]">
-          <div className="w-6 h-6 md:w-8 md:h-8 lg:w-[38px] lg:h-[38px] bg-white rounded"></div>
-          <div className="text-white text-sm md:text-lg lg:text-2xl font-normal">Grid Dynamics</div>
+    <nav className="fixed top-0 left-0 w-full h-16 md:h-20 lg:h-24 bg-gradient-to-b from-dark to-transparent z-50 flex items-center justify-center">
+      <div className="w-full max-w-7xl px-4 md:px-6 lg:px-8 flex flex-row justify-between items-center">
+        {/* Logo */}
+        <div className="flex items-center gap-2 md:gap-3">
+          <div className="w-6 h-6 md:w-7 md:h-7 lg:w-8 lg:h-8 bg-white rounded"></div>
+          <div className="text-white text-sm md:text-base lg:text-lg font-normal whitespace-nowrap">Grid Dynamics</div>
         </div>
         
-        {/* Desktop Navigation */}
-        <div className="hidden lg:flex flex-row items-center gap-[60px]">
-          <a href="#services" className="text-white text-base font-normal no-underline tracking-[0.05em] uppercase hover:text-accent transition-colors">SERVICES</a>
-          <a href="#clients" className="text-white text-base font-normal no-underline tracking-[0.05em] uppercase hover:text-accent transition-colors">CLIENTS</a>
-          <a href="#industry" className="text-white text-base font-normal no-underline tracking-[0.05em] uppercase hover:text-accent transition-colors">INDUSTRY SOLUTIONS</a>
-          <a href="#stories" className="text-white text-base font-normal no-underline tracking-[0.05em] uppercase hover:text-accent transition-colors">SUCCESS STORIES</a>
+        {/* Desktop Navigation - Always visible on desktop */}
+        <div className="hidden md:flex flex-row items-center gap-4 lg:gap-6 xl:gap-8">
+          <a href="#services" className="text-white text-xs lg:text-sm font-normal no-underline tracking-[0.05em] uppercase hover:text-accent transition-colors whitespace-nowrap">SERVICES</a>
+          <a href="#clients" className="text-white text-xs lg:text-sm font-normal no-underline tracking-[0.05em] uppercase hover:text-accent transition-colors whitespace-nowrap">CLIENTS</a>
+          <a href="#industry" className="text-white text-xs lg:text-sm font-normal no-underline tracking-[0.05em] uppercase hover:text-accent transition-colors whitespace-nowrap">INDUSTRY SOLUTIONS</a>
+          <a href="#stories" className="text-white text-xs lg:text-sm font-normal no-underline tracking-[0.05em] uppercase hover:text-accent transition-colors whitespace-nowrap">SUCCESS STORIES</a>
         </div>
         
         {/* Mobile Navigation Button */}
-        <button className="lg:hidden flex flex-row justify-center items-center px-3 py-2 gap-1 bg-gradient-to-r from-white/25 to-transparent border-none rounded-full text-white text-xs font-normal tracking-[0.05em] cursor-pointer hover:bg-white/30 transition-all">
+        <button className="md:hidden flex flex-row justify-center items-center px-3 py-2 gap-1 bg-gradient-to-r from-white/25 to-transparent border-none rounded-full text-white text-xs font-normal tracking-[0.05em] cursor-pointer hover:bg-white/30 transition-all">
           MENU
           <div className="w-2 h-2 border border-white rounded-sm rotate-45"></div>
         </button>
         
-        {/* Desktop CTA Button */}
-        <button className="hidden lg:flex flex-row justify-center items-center px-[25px] py-[10px] gap-[5px] bg-gradient-to-r from-white/25 to-transparent border-none rounded-full text-white text-base font-normal tracking-[0.05em] cursor-pointer hover:bg-white/30 transition-all">
+        {/* Desktop CTA Button - Always visible on desktop */}
+        <button className="hidden md:flex flex-row justify-center items-center px-3 lg:px-4 xl:px-6 py-2 gap-1 lg:gap-2 bg-gradient-to-r from-white/25 to-transparent border-none rounded-full text-white text-xs lg:text-sm font-normal tracking-[0.05em] cursor-pointer hover:bg-white/30 transition-all whitespace-nowrap">
           LET'S TALK
-          <div className="w-3 h-3 border border-white rounded-sm rotate-45"></div>
+          <div className="w-2 h-2 lg:w-3 lg:h-3 border border-white rounded-sm rotate-45"></div>
         </button>
       </div>
     </nav>

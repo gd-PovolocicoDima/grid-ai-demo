@@ -111,7 +111,7 @@ export default function Footer() {
         
         {/* Bottom Block - Logo and Website */}
         <div className="pt-[30px]">
-          <div className="flex flex-col lg:flex-row justify-between items-start lg:items-center gap-4 lg:gap-8">
+          <div className="flex flex-row justify-between items-center gap-4 lg:gap-8">
             {/* Left side - Grid Dynamics Logo */}
             <div className="flex items-center gap-3 md:gap-4">
               <Image 

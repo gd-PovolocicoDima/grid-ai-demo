@@ -21,7 +21,6 @@ export type Media = {
   publishedAt: string;
 };
 
-
 // Single navbar item (link or dropdown)
 export type NavbarItem = {
   id: number;
@@ -51,7 +50,6 @@ export type NavbarSection = {
     newTab?: boolean;
   }[];
 };
-
 
 // Partners section with multiple logos
 export type PartnersSection = {
@@ -93,11 +91,30 @@ export type FooterColumn = {
 export type FooterSection = {
   __component: "footer.footer";
   id: number;
-  logoLeft: Media;
-  columns: FooterColumn[];
-  partners?: Media[] | null;
-};
+  logo: Media;
+  copyright: string;
+  privacy: string;
+  contactSection: {
+    email: string;
+    phone: string;
+    location: string;
+    title: string;
+  };
+  buttons: {
+    id: number;
+    label: string;
+    url: string;
+    variant: "primary" | "secondary" | "link";
+    newTab?: boolean;
+  };
 
+  navigation: {
+    id: number;
+    url: string;
+    type: string;
+    label: string;
+  }[];
+};
 
 // Dynamic zone: can be navbar, partners or footer
 export type Section = NavbarSection | PartnersSection | FooterSection;

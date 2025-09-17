@@ -2,6 +2,12 @@ import Image from "next/image";
 import { FooterSection } from "../types";
 
 export default function Footer({ footer }: { footer: FooterSection }) {
+  const { contactSection } = footer;
+
+  const hasContactInfo =
+    contactSection &&
+    (contactSection.location || contactSection.phone || contactSection.email);
+
   return (
     <footer className="relative w-full bg-dark py-12 md:py-16 lg:py-20">
       <div className="w-full px-4 md:px-6 lg:px-[100px] flex flex-col">
@@ -25,72 +31,70 @@ export default function Footer({ footer }: { footer: FooterSection }) {
         </div>
 
         {/* Contact Information Block */}
-        <div className="pt-8 md:pt-12 lg:pt-16 flex flex-col gap-4 md:gap-6">
-          <div className="flex items-start gap-3 md:gap-4">
-            <Image
-              src="/location.svg"
-              alt="Location"
-              width={14}
-              height={18}
-              className="w-[14px] h-[18px] flex-shrink-0 mt-1"
-            />
-            <p className="text-white text-lg md:text-xl lg:text-2xl xl:text-3xl font-normal leading-[140%] m-0">
-              Oberallmendstrasse 18, 6300 Zug, Switzerland
-            </p>
+        {hasContactInfo && (
+          <div className="pt-8 md:pt-12 lg:pt-16 flex flex-col gap-4 md:gap-6">
+            {contactSection.email && (
+              <div className="flex items-center gap-3 md:gap-4">
+                <Image
+                  src="/location.svg"
+                  alt="Email"
+                  width={14}
+                  height={18}
+                  className="w-[14px] h-[18px] flex-shrink-0"
+                />
+                <a
+                  href={`mailto:${contactSection.email}`}
+                  className="text-white text-lg md:text-xl lg:text-2xl xl:text-3xl font-normal leading-[140%] no-underline hover:text-accent transition-colors">
+                  {contactSection.email}
+                </a>
+              </div>
+            )}
+
+            {contactSection.phone && (
+              <div className="flex items-center gap-3 md:gap-4">
+                <Image
+                  src="/phone.svg"
+                  alt="Phone"
+                  width={14}
+                  height={18}
+                  className="w-[14px] h-[18px] flex-shrink-0"
+                />
+                <a
+                  href={`tel:${contactSection.phone}`}
+                  className="text-white text-lg md:text-xl lg:text-2xl xl:text-3xl font-normal leading-[140%] no-underline hover:text-accent transition-colors">
+                  {contactSection.phone}
+                </a>
+              </div>
+            )}
+
+            {contactSection.location && (
+              <div className="flex items-start gap-3 md:gap-4">
+                <Image
+                  src="/location.svg"
+                  alt="Location"
+                  width={14}
+                  height={18}
+                  className="w-[14px] h-[18px] flex-shrink-0 mt-1"
+                />
+                <p className="text-white text-lg md:text-xl lg:text-2xl xl:text-3xl font-normal leading-[140%] m-0">
+                  {contactSection.location}
+                </p>
+              </div>
+            )}
           </div>
-          <div className="flex items-center gap-3 md:gap-4">
-            <Image
-              src="/phone.svg"
-              alt="Phone"
-              width={14}
-              height={18}
-              className="w-[14px] h-[18px] flex-shrink-0"
-            />
-            <a
-              href="tel:+31753020011"
-              className="text-white text-lg md:text-xl lg:text-2xl xl:text-3xl font-normal leading-[140%] no-underline hover:text-accent transition-colors">
-              +31753020011
-            </a>
-          </div>
-          <div className="flex items-center gap-3 md:gap-4">
-            <Image
-              src="/phone.svg"
-              alt="Email"
-              width={14}
-              height={18}
-              className="w-[14px] h-[18px] flex-shrink-0"
-            />
-            <a
-              href="mailto:contact@newbrand.com"
-              className="text-white text-lg md:text-xl lg:text-2xl xl:text-3xl font-normal leading-[140%] no-underline hover:text-accent transition-colors">
-              contact@newbrand.com
-            </a>
-          </div>
-        </div>
+        )}
 
         {/* Social Links Block */}
         <div className="pt-[160px]">
           <div className="flex flex-row items-center gap-6 md:gap-8 lg:gap-12">
-            <a
-              href="#"
-              className="text-white text-lg md:text-xl lg:text-2xl font-normal leading-[140%] no-underline hover:text-accent transition-colors">
-              Facebook
-            </a>
-            <a
-              href="#"
-              className="text-white text-lg md:text-xl lg:text-2xl font-normal leading-[140%] no-underline hover:text-accent transition-colors">
-              Linkedin
-            </a>
-            <a
-              href="#"
-              className="text-white text-lg md:text-xl lg:text-2xl font-normal leading-[140%] no-underline hover:text-accent transition-colors">
-              Instagram
-            </a>
-            <a
-              href="#"
-              className="text-white text-lg md:text-xl lg:text-2xl font-normal leading-[140%] no-underline hover:text-accent transition-colors">
-              Youtube
-            </a>
+            {footer.navigation.map(({ label, url, id }) => (
+              <a
+                key={id}
+                href={url}
+                className="text-white text-lg md:text-xl lg:text-2xl font-normal leading-[140%] no-underline hover:text-accent transition-colors">
+                {label}
+              </a>
+            ))}
           </div>
         </div>
 
@@ -118,7 +122,7 @@ export default function Footer({ footer }: { footer: FooterSection }) {
 
             {/* Right side - Copyright */}
             <div className="text-gray text-xs font-normal leading-[130%] tracking-[0.02em] uppercase text-left lg:text-right">
-              Copyright © 2025 Grid Dynamics Holdings, Inc. All rights reserved.
+              {footer.copyright}
             </div>
           </div>
         </div>
@@ -140,16 +144,43 @@ export default function Footer({ footer }: { footer: FooterSection }) {
             {/* Left side - Grid Dynamics Logo */}
             <div className="flex items-center gap-3 md:gap-4">
               <Image
-                alt={footer.logoLeft.name}
+                alt={footer.logo.name}
                 width={200}
                 height={50}
-                src={footer.logoLeft.url}
+                src={footer.logo.url}
               />
             </div>
 
             {/* Right side - Website */}
             <div className="text-white text-base md:text-lg font-normal leading-tight">
               griddynamics.com
+            </div>
+          </div>
+
+          {/* Extra Row with 2 texts */}
+          <div className="pt-10 flex flex-row justify-between items-center">
+            <div className="text-gray text-sm md:text-base lg:text-sm font-normal">
+              {footer.privacy}
+            </div>
+            <div className="text-gray text-sm md:text-base lg:text-sm font-normal">
+              {footer.copyright}
+            </div>
+          </div>
+
+          {/* Extra Row with 1 text left + 1 text right */}
+          <div className="pt-8 flex flex-row ">
+            <div className="text-gray text-xs md:text-base lg:text-xs font-normal">
+              Grid Dynamics Holdings, Inc. (“Grid Dynamics”) is publicly traded
+              on the Nasdaq Stock Market (ticker symbol GDYN) and has its
+              headquarters in San Ramon, California. Beijing Teamsun Technology
+              Co., Ltd. (“Beijing Teamsun”), a Chinese company, is a minority
+              shareholder, beneficially owning approximately 20.0% of the shares
+              of Grid Dynamics through a subsidiary. The precise ownership
+              percentage of Beijing Teamsun may fluctuate and is updated
+              regularly in Grid Dynamics’ filings with the Securities and
+              Exchange Commission (available at and at ); Grid Dynamics
+              anticipates that Beijing Teamsun’s ownership level will not exceed
+              approximately 20.0%.
             </div>
           </div>
         </div>
